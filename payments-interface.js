@@ -24,7 +24,7 @@ function openPaymentsFrame(){
     } else if (!donid){
         console.warn('No donid!');
     } else {
-        var windowWidth = $(window).width(),
+        var windowWidth = screen.width,
             windowHeight = screen.height,
             frameWidth = 800,
             frameHeight = 600;
