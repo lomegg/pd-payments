@@ -25,15 +25,12 @@ function openPaymentsFrame(){
         console.warn('No donid!');
     } else {
         var windowWidth = $(window).width(),
-            windowHeight = $(window).height(),
+            windowHeight = screen.height,
             frameWidth = 800,
             frameHeight = 600;
 
         var posX = (windowWidth - frameWidth)/2;
         var posY = (windowHeight - frameHeight)/2;
-
-        console.log('windowWidth', windowWidth, 'frameWidth',frameWidth, 'posX',posX);
-        console.log('windowHeight', windowHeight, 'frameHeight', frameHeight, 'posY',posY);
 
         window.open('https://payments.petridish.pw/?settedLang=' + window.settedlang + '&id=' + window.donid, '', 'height=' + frameHeight + ', width=' + frameWidth + ', menubar=no, location=no, titlebar=no, status=no, top=' + posY + ', left=' + posX);
     }
