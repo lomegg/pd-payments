@@ -1,6 +1,9 @@
 .button.orange.payments{
     margin: 0 10px 0 0;
 }
+.button.orange.payments i{
+    margin: 10px -3px;
+}
 
 .button.orange.payments:hover{
     background: #d45c04;
