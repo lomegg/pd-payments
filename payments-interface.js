@@ -32,7 +32,7 @@ function openPaymentsFrame(){
         var posX = (windowWidth - frameWidth)/2;
         var posY = (windowHeight - frameHeight)/2;
 
-        window.open('https://push.petridish.pw/?settedLang=' + window.settedlang + '&id=' + window.donid, '', 'height=' + frameHeight + ', width=' + frameWidth + ', menubar=no, location=no, titlebar=no, status=no, top=' + posY + ', left=' + posX);
+        window.open('https://payments.petridish.pw/?settedLang=' + window.settedlang + '&id=' + window.donid, '', 'height=' + frameHeight + ', width=' + frameWidth + ', menubar=no, location=no, titlebar=no, status=no, top=' + posY + ', left=' + posX);
     }
 }
 
