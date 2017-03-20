@@ -32,6 +32,9 @@ function openPaymentsFrame(){
         var posX = (windowWidth - frameWidth)/2;
         var posY = (windowHeight - frameHeight)/2;
 
+        console.log('windowWidth', windowWidth, 'frameWidth',frameWidth, 'posX',posX);
+        console.log('windowHeight', windowHeight, 'frameHeight', frameHeight, 'posY',posY);
+
         window.open('https://payments.petridish.pw/?settedLang=' + window.settedlang + '&id=' + window.donid, '', 'height=' + frameHeight + ', width=' + frameWidth + ', menubar=no, location=no, titlebar=no, status=no, top=' + posY + ', left=' + posX);
     }
 }
