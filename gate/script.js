@@ -53,9 +53,30 @@ function showLocalizedText(lang, selector){
     // show desired block
     $(selector + '.' + lang).addClass('active');
 
-
-
 }
+
+function showPaymentsButton(){
+    var button = $('<button data-xpaystation-widget-open>Купить подписку</button>');
+    button.appendTo($('.lang-block.active'));
+}
+
+
+function loadPaymentsInterface(token){
+    var options = {
+        access_token: token, //TODO передайте токен, полученный на предыдущем шаге
+        sandbox: true //TODO пожалуйста, не забудьте удалить этот параметр при переходе в Live режим
+    };
+    var s = document.createElement('script');
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = "https://static.xsolla.com/embed/paystation/1.0.7/widget.min.js";
+    s.addEventListener('load', function (e) {
+        XPayStationWidget.init(options);
+    }, false);
+    var head = document.getElementsByTagName('head')[0];
+    head.appendChild(s);
+}
+
 
 
 /*======Function launchers======*/
@@ -75,6 +96,35 @@ $(document).ready(function(){
     interval = runningDotsStart('.lang-block.active .status');
 
     // request data from XSOLLA
+
+    //https://payback.petridish.pw/get-token.php?id=1666&setted_lang=ru
+
+    $.ajax( "https://payback.petridish.pw/get-token.php?id=" +  userId +"&setted_lang=" + settedLang )
+        .done(function(data) {
+            data = JSON.parse(data);
+            //console.log( data );
+            // token is now accessible as data.token
+            loadPaymentsInterface(token);
+            // stop interval
+            runningDotsStopInElement('.lang-block.active .status');
+            $('.lang-block.active .status').hide();
+
+            //show new status message
+
+            // show button
+            showPaymentsButton();
+
+        })
+        .fail(function() {
+            console.warn( "error" );
+        })
+        .always(function() {
+            console.log( "complete" );
+        });
+
+
+
+
 
 
 });
