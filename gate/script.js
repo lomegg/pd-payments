@@ -70,8 +70,16 @@ function updateLocalizedText(lang, selector){
     $(selector).text(newText[lang]);
 }
 
-function showPaymentsButton(){
-    var button = $('<button data-xpaystation-widget-open>Купить подписку</button>');
+function showPaymentsButton(lang){
+    if (!lang){lang = 'ru'}
+    var buttonText = {
+        ru: 'Купить валюту',
+        en: 'Buy the currency',
+        fr: 'Buy the currency',
+        nl: 'Buy the currency'
+    };
+
+    var button = $('<button data-xpaystation-widget-open>' + buttonText[lang] + '</button>');
     button.appendTo($('.lang-block.active'));
 }
 
@@ -130,7 +138,7 @@ $(document).ready(function(){
             updateLocalizedText(settedLang);
 
             // show button
-            showPaymentsButton();
+            showPaymentsButton(settedLang);
 
         })
         .fail(function() {
