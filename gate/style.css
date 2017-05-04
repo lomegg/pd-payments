@@ -39,3 +39,18 @@ body {
 .active{
     display: block;
 }
+
+button{
+    background: #21da08;
+    padding: 10px 30px;
+    border-radius: 15px;
+    border-color: gray;
+    font-size: 25px;
+    margin: 20px 0 0 0;
+    color: black;
+    font-family: 'Fira Sans Condensed', sans-serif;
+    outline:none;
+}
+button:focus, button:active{
+    outline:none;
+}
