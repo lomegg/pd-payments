@@ -55,6 +55,21 @@ function showLocalizedText(lang, selector){
 
 }
 
+function updateLocalizedText(lang, selector){
+    if (!lang){lang = 'ru'}
+    if (!selector){selector = '.lang-block.active h1'}
+
+    var newText = {
+        ru: 'Жми на кнопку!',
+        en: 'Press the buttton!',
+        fr: 'Press the buttton!',
+        nl: 'Press the buttton!'
+    };
+
+    console.log($(selector));
+    $(selector).text(newText[lang]);
+}
+
 function showPaymentsButton(){
     var button = $('<button data-xpaystation-widget-open>Купить подписку</button>');
     button.appendTo($('.lang-block.active'));
@@ -102,14 +117,17 @@ $(document).ready(function(){
     $.ajax( "https://payback.petridish.pw/get-token.php?id=" +  userId +"&setted_lang=" + settedLang )
         .done(function(data) {
             data = JSON.parse(data);
-            //console.log( data );
             // token is now accessible as data.token
-            loadPaymentsInterface(token);
-            // stop interval
+
+            //load payments interface
+            loadPaymentsInterface(data.token);
+
+            // stop and hide interval
             runningDotsStopInElement('.lang-block.active .status');
             $('.lang-block.active .status').hide();
 
             //show new status message
+            updateLocalizedText(settedLang);
 
             // show button
             showPaymentsButton();
@@ -121,10 +139,4 @@ $(document).ready(function(){
         .always(function() {
             console.log( "complete" );
         });
-
-
-
-
-
-
 });
