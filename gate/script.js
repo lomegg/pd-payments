@@ -95,6 +95,10 @@ function loadPaymentsInterface(token){
     s.src = "https://static.xsolla.com/embed/paystation/1.0.7/widget.min.js";
     s.addEventListener('load', function (e) {
         XPayStationWidget.init(options);
+        XPayStationWidget.on(XPayStationWidget.eventTypes.CLOSE, function(event, data){
+            // close the window
+            window.close();
+        });
     }, false);
     var head = document.getElementsByTagName('head')[0];
     head.appendChild(s);
