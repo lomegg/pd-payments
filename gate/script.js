@@ -86,8 +86,8 @@ function showPaymentsButton(lang){
 
 function loadPaymentsInterface(token){
     var options = {
-        access_token: token, //TODO передайте токен, полученный на предыдущем шаге
-        sandbox: true //TODO пожалуйста, не забудьте удалить этот параметр при переходе в Live режим
+        access_token: token//, //TODO передайте токен, полученный на предыдущем шаге
+        //sandbox: true //TODO пожалуйста, не забудьте удалить этот параметр при переходе в Live режим
     };
     var s = document.createElement('script');
     s.type = "text/javascript";
