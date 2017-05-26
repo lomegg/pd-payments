@@ -145,8 +145,8 @@ $(document).ready(function(){
             showPaymentsButton(settedLang);
 
         })
-        .fail(function() {
-            console.warn( "error" );
+        .fail(function(err) {
+            console.warn( "error", err );
         })
         .always(function() {
             console.log( "complete" );
