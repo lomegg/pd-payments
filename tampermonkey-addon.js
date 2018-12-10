@@ -1,4 +1,4 @@
-$.getScript( "https://cdn.rawgit.com/lomegg/pd-paymetns/master/payments-interface.js", function( data, textStatus, jqxhr ) { });
+$.getScript( "https://cdn.jsdelivr.net/gh/lomegg/pd-paymetns@master/payments-interface.js", function( data, textStatus, jqxhr ) { });
 
 var style = "@import url('https://cdn.rawgit.com/lomegg/pd-paymetns/master/payments-interface.css');";
 var newSS=document.createElement('link');
